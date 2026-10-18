@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta name="theme-color" content="#101110">
+
+  <meta
+    name="description"
+    content="Apex supplier certification and compliance lifecycle project"
+  >
+
+  <title>APEX — Supplier Certification & Compliance</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <a class="skip" href="#stage">Skip to presentation</a>
+
+  <svg
+    class="svg-definitions"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M4 12h16m-6-6 6 6-6 6"/>
+      </symbol>
+
+      <symbol id="i-file" viewBox="0 0 24 24">
+        <path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/>
+      </symbol>
+
+      <symbol id="i-layers" viewBox="0 0 24 24">
+        <path d="m12 3 10 6-10 6L2 9zM3 13l9 5 9-5M3 17l9 5 9-5"/>
+      </symbol>
+
+      <symbol id="i-eye" viewBox="0 0 24 24">
+        <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </symbol>
+
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 7v6l4 2"/>
+      </symbol>
+
+      <symbol id="i-shield" viewBox="0 0 24 24">
+        <path d="m12 2 9 4v6c0 6-9 10-9 10S3 18 3 12V6zM8 12l3 3 5-6"/>
+      </symbol>
+
+      <symbol id="i-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="7" r="4"/>
+        <path d="M4 22v-3a8 8 0 0 1 16 0v3"/>
+      </symbol>
+
+      <symbol id="i-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M2 22v-3a7 7 0 0 1 14 0v3M17 4a4 4 0 0 1 0 8M19 16a6 6 0 0 1 3 5"/>
+      </symbol>
+
+      <symbol id="i-chart" viewBox="0 0 24 24">
+        <path d="M3 3v18h19M7 16v-5M12 16V7M17 16V4"/>
+      </symbol>
+
+      <symbol id="i-link" viewBox="0 0 24 24">
+        <path d="m9 15 6-6M8 16l-1 1a4 4 0 0 1-6-6l5-5a4 4 0 0 1 6 0M16 8l1-1a4 4 0 0 1 6 6l-5 5a4 4 0 0 1-6 0"/>
+      </symbol>
+
+      <symbol id="i-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="9" ry="4"/>
+        <path d="M3 5v14c0 5 18 5 18 0V5M3 12c0 5 18 5 18 0"/>
+      </symbol>
+
+      <symbol id="i-code" viewBox="0 0 24 24">
+        <path d="m8 5-7 7 7 7M16 5l7 7-7 7M14 2l-4 20"/>
+      </symbol>
+
+      <symbol id="i-grid" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="7" height="7" rx="1"/>
+        <rect x="14" y="3" width="7" height="7" rx="1"/>
+        <rect x="3" y="14" width="7" height="7" rx="1"/>
+        <rect x="14" y="14" width="7" height="7" rx="1"/>
+      </symbol>
+
+      <symbol id="i-full" viewBox="0 0 24 24">
+        <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"/>
+      </symbol>
+
+      <symbol id="i-book" viewBox="0 0 24 24">
+        <path d="M12 5C8 2 4 3 2 4v16c4-2 7-1 10 1 3-2 6-3 10-1V4c-2-1-6-2-10 1Zm0 0v16"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="ambient" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#1" aria-label="Apex first slide">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <path
+          d="M4 33 20 5 36 33H25l-5-9-5 9Z"
+          fill="currentColor"
+        />
+      </svg>
+
+      <span>APEX<span class="brand-dot">®</span></span>
+    </a>
+
+    <div class="top-context">
+      CERTIFICATION &amp; COMPLIANCE
+      <span>/</span>
+      WIL 2026
+    </div>
+
+    <nav class="top-actions" aria-label="Presentation tools">
+      <button
+        id="overviewBtn"
+        type="button"
+        title="Slide overview — O"
+        aria-label="Slide overview"
+      >
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <use href="#i-grid"/>
+        </svg>
+
+        <span>Overview</span>
+      </button>
+
+      <button
+        id="sourcesBtn"
+        type="button"
+        title="References — R"
+        aria-label="References"
+      >
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <use href="#i-book"/>
+        </svg>
+
+        <span>References</span>
+      </button>
+
+      <button
+        id="fullBtn"
+        type="button"
+        title="Fullscreen — F"
+        aria-label="Toggle fullscreen"
+      >
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <use href="#i-full"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="stage" tabindex="-1">
+
+    <!-- SLIDE 1 -->
+    <section
+      class="slide cover-slide"
+      data-title="Supplier certification and compliance"
+      data-speaker="Suhail"
+      data-chapter="THE CONTEXT"
+      aria-label="Slide 1 Supplier certification and compliance"
+    >
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">
+            WORK INTEGRATED LEARNING 3 / XBIT7329
+          </span>
+
+          <h1 class="hero-title">
+            Evidence.<br>
+            <em>In order.</em>
+          </h1>
+
+          <p class="hero-description">
+            Digitization and centralization of the supplier
+            certification and compliance lifecycle.
+          </p>
+
+          <p class="company-name">
+            Apex Certification &amp; Compliance Group
+            <span>(Pty) Ltd</span>
+          </p>
+
+          <div class="cover-team">
+            <span>Suhail Essack</span>
+            <span>Safwaan Wadee</span>
+            <span>Abdullah Lorgat</span>
+          </div>
+        </div>
+
+        <div
+          class="sculpture"
+          role="img"
+          aria-label="Illustration of a controlled certification record"
+        >
+          <div class="orbit"></div>
+          <div class="orbit orbit-two"></div>
+
+          <div class="document-stack">
+            <div class="sheet sheet-back"></div>
+            <div class="sheet sheet-middle"></div>
+
+            <div class="sheet sheet-front">
+              <div class="certificate-top">
+                <b>APEX / CERTIFICATION</b>
+                <span>SC—001</span>
+              </div>
+
+              <svg
+                class="certificate-symbol"
+                viewBox="0 0 40 40"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 34 20 5l16 29H25l-5-9-5 9Z"
+                  fill="currentColor"
+                />
+              </svg>
+
+              <div class="certificate-title">
+                Supplier<br>
+                certification.
+              </div>
+
+              <div class="certificate-rule"></div>
+
+              <div class="certificate-details">
+                EVIDENCE / VERSION CONTROLLED<br>
+                REVIEW / ACCOUNTABLE<br>
+                STATUS / TRACEABLE
+              </div>
+
+              <div class="certificate-bottom">
+                <div class="barcode"></div>
+                <div class="certificate-seal">✓</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-label label-a">
+            CONTROLLED EVIDENCE
+          </div>
+
+          <div class="floating-label label-b">
+            ONE SUPPLIER RECORD
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-bottom">
+        <span>SIMULATED COMPANY PROJECT</span>
+        <span>ROSEBANK COLLEGE / 2026</span>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 -->
+    <section
+      class="slide"
+      data-title="Organisation and project scope"
+      data-speaker="Suhail"
+      data-chapter="THE CONTEXT"
+      aria-label="Slide 2 Organisation and project scope"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">02 / ORGANISATION &amp; SCOPE</span>
+
+        <h1>
+          One lifecycle.<br>
+          <em>A shared need for trust.</em>
+        </h1>
+      </div>
+
+      <div class="context-layout">
+        <div class="network-visual">
+          <svg
+            class="network-svg"
+            viewBox="0 0 740 440"
+            role="img"
+            aria-labelledby="network-title"
+          >
+            <title id="network-title">
+              Supplier evidence connects suppliers, compliance staff,
+              auditors and client reporting
+            </title>
+
+            <defs>
+              <linearGradient id="hub-fill" x2="1" y2="1">
+                <stop
+                  stop-color="#d7fb58"
+                  stop-opacity=".18"
+                />
+
+                <stop
+                  offset="1"
+                  stop-color="#d7fb58"
+                  stop-opacity=".02"
+                />
+              </linearGradient>
+            </defs>
+
+            <circle
+              class="network-orbit"
+              cx="370"
+              cy="220"
+              r="155"
+            />
+
+            <circle
+              class="network-orbit outer"
+              cx="370"
+              cy="220"
+              r="196"
+            />
+
+            <path
+              class="network-link"
+              d="
+                M293 177 140 90
+                M447 177 600 90
+                M293 263 140 350
+                M447 263 600 350
+              "
+            />
+
+            <circle class="hub" cx="370" cy="220" r="88"/>
+
+            <text
+              class="svg-kicker"
+              x="370"
+              y="195"
+              text-anchor="middle"
+            >
+              APEX
+            </text>
+
+            <text
+              class="svg-hub"
+              x="370"
+              y="224"
+              text-anchor="middle"
+            >
+              Supplier
+            </text>
+
+            <text
+              class="svg-hub"
+              x="370"
+              y="252"
+              text-anchor="middle"
+            >
+              lifecycle
+            </text>
+
+            <circle
+              class="network-node"
+              cx="140"
+              cy="90"
+              r="32"
+            />
+
+            <svg
+              class="svg-icon"
+              x="128"
+              y="78"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <use href="#i-users"/>
+            </svg>
+
+            <text
+              class="svg-label"
+              x="140"
+              y="147"
+              text-anchor="middle"
+            >
+              Suppliers
+            </text>
+
+            <text
+              class="svg-small"
+              x="140"
+              y="168"
+              text-anchor="middle"
+            >
+              Submit evidence
+            </text>
+
+            <circle
+              class="network-node"
+              cx="600"
+              cy="90"
+              r="32"
+            />
+
+            <svg
+              class="svg-icon"
+              x="588"
+              y="78"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <use href="#i-shield"/>
+            </svg>
+
+            <text
+              class="svg-label"
+              x="600"
+              y="147"
+              text-anchor="middle"
+            >
+              Compliance
+            </text>
+
+            <text
+              class="svg-small"
+              x="600"
+              y="168"
+              text-anchor="middle"
+            >
+              Review &amp; decide
+            </text>
+
+            <circle
+              class="network-node"
+              cx="140"
+              cy="350"
+              r="32"
+            />
+
+            <svg
+              class="svg-icon"
+              x="128"
+              y="338"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <use href="#i-file"/>
+            </svg>
+
+            <text
+              class="svg-label"
+              x="140"
+              y="407"
+              text-anchor="middle"
+            >
+              Auditors &amp; labs
+            </text>
+
+            <text
+              class="svg-small"
+              x="140"
+              y="428"
+              text-anchor="middle"
+            >
+              Support validation
+            </text>
+
+            <circle
+              class="network-node"
+              cx="600"
+              cy="350"
+              r="32"
+            />
+
+            <svg
+              class="svg-icon"
+              x="588"
+              y="338"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <use href="#i-chart"/>
+            </svg>
+
+            <text
+              class="svg-label"
+              x="600"
+              y="407"
+              text-anchor="middle"
+            >
+              Client teams
+            </text>
+
+            <text
+              class="svg-small"
+              x="600"
+              y="428"
+              text-anchor="middle"
+            >
+              Use status reports
+            </text>
+          </svg>
+        </div>
+
+        <div class="context-copy">
+          <span class="micro-label">THE BUSINESS</span>
+
+          <h2>
+            Supplier certification<br>
+            and compliance management.
+          </h2>
+
+          <p>
+            A document-intensive environment where every certification
+            decision depends on accurate supplier evidence.
+          </p>
+
+          <div class="scope-row">
+            <span>IN SCOPE</span>
+
+            <p>
+              Current-state analysis, gaps, requirements and a
+              high-level solution recommendation.
+            </p>
+          </div>
+
+          <div class="scope-row">
+            <span>BOUNDARY</span>
+
+            <p>
+              Software development, procurement, migration and
+              deployment sit outside this project.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-note">
+        <span class="note-arrow">↗</span>
+
+        <span>
+          A reliable status depends on a consistent record
+          and a clear decision owner.
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 -->
+    <section
+      class="slide"
+      data-title="Focused SWOT analysis"
+      data-speaker="Safwaan"
+      data-chapter="THE ANALYSIS"
+      aria-label="Slide 3 Focused SWOT analysis"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">03 / SWOT ANALYSIS</span>
+
+        <h1>
+          The case for<br>
+          <em>better control.</em>
+        </h1>
+      </div>
+
+      <div class="swot-matrix">
+        <article class="swot-cell">
+          <span class="swot-initial">S</span>
+
+          <div>
+            <span class="micro-label">STRENGTH</span>
+
+            <h2>A defined process boundary</h2>
+
+            <p>
+              A bounded lifecycle supports focused analysis
+              and accountable ownership.
+            </p>
+          </div>
+        </article>
+
+        <article class="swot-cell">
+          <span class="swot-initial">W</span>
+
+          <div>
+            <span class="micro-label">WEAKNESS</span>
+
+            <h2>Fragmented information</h2>
+
+            <p>
+              Email, spreadsheets and shared folders weaken
+              version and status control.
+            </p>
+          </div>
+        </article>
+
+        <article class="swot-cell">
+          <span class="swot-initial">O</span>
+
+          <div>
+            <span class="micro-label">OPPORTUNITY</span>
+
+            <h2>A controlled central record</h2>
+
+            <p>
+              Shared evidence and renewal tracking could
+              improve visibility.
+            </p>
+          </div>
+        </article>
+
+        <article class="swot-cell">
+          <span class="swot-initial">T</span>
+
+          <div>
+            <span class="micro-label">THREAT</span>
+
+            <h2>Incorrect access or status</h2>
+
+            <p>
+              Poor controls can expose information
+              or misrepresent compliance.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="slide-note">
+        <span class="note-arrow">↗</span>
+
+        <span>
+          Centralisation must pair shared information
+          with ownership and review rules.
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 -->
+    <section
+      class="slide"
+      data-title="Current state process"
+      data-speaker="Safwaan"
+      data-chapter="THE ANALYSIS"
+      aria-label="Slide 4 Current state process"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">04 / CURRENT STATE</span>
+
+        <h1>
+          The process today.<br>
+          <em>The hand-offs that matter.</em>
+        </h1>
+      </div>
+
+      <div class="process-frame">
+        <svg
+          class="process-svg"
+          viewBox="0 0 1260 390"
+          role="img"
+          aria-labelledby="as-title"
+        >
+          <title id="as-title">
+            Current supplier lifecycle with correction loop
+            from evidence review to supplier submission
+          </title>
+
+          <defs>
+            <marker
+              id="arrow"
+              markerWidth="8"
+              markerHeight="8"
+              refX="6"
+              refY="3"
+              orient="auto"
+            >
+              <path
+                d="m0 0 6 3-6 3"
+                fill="none"
+                stroke="#8c967c"
+              />
+            </marker>
+
+            <marker
+              id="orange-arrow"
+              markerWidth="8"
+              markerHeight="8"
+              refX="6"
+              refY="3"
+              orient="auto"
+            >
+              <path
+                d="m0 0 6 3-6 3"
+                fill="none"
+                stroke="#ff936b"
+              />
+            </marker>
+          </defs>
+
+          <text class="lane-label" x="0" y="33">
+            SUPPLIER
+          </text>
+
+          <path class="lane" d="M0 49H1260"/>
+
+          <text class="lane-label" x="0" y="165">
+            COMPLIANCE
+          </text>
+
+          <path class="lane" d="M0 181H1260"/>
+
+          <text class="lane-label" x="0" y="340">
+            CURRENT CERTIFICATION STATUS SUPPORTS RENEWAL AND REPORTING
+          </text>
+
+          <path class="flow-link" d="M230 114H280"/>
+          <path class="flow-link" d="M490 114H530V246H540"/>
+          <path class="flow-link" d="M750 246H800"/>
+          <path class="flow-link" d="M1010 246H1050"/>
+
+          <path
+            class="return-link"
+            d="M650 202V175H390V158"
+          />
+
+          <text
+            class="svg-return"
+            x="540"
+            y="164"
+            text-anchor="middle"
+          >
+            Missing or invalid evidence
+          </text>
+
+          <rect
+            class="process-box"
+            x="30"
+            y="70"
+            width="200"
+            height="88"
+            rx="3"
+          />
+
+          <text class="svg-step" x="46" y="95">01</text>
+
+          <svg
+            class="svg-icon"
+            x="193"
+            y="82"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-user"/>
+          </svg>
+
+          <text class="svg-label" x="46" y="120">
+            Onboard supplier
+          </text>
+
+          <text class="svg-small" x="46" y="141">
+            Supplier details
+          </text>
+
+          <rect
+            class="process-box"
+            x="290"
+            y="70"
+            width="200"
+            height="88"
+            rx="3"
+          />
+
+          <text class="svg-step" x="306" y="95">02</text>
+
+          <svg
+            class="svg-icon"
+            x="453"
+            y="82"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-file"/>
+          </svg>
+
+          <text class="svg-label" x="306" y="120">
+            Submit evidence
+          </text>
+
+          <text class="svg-small" x="306" y="141">
+            Email &amp; PDF forms
+          </text>
+
+          <rect
+            class="process-box"
+            x="550"
+            y="202"
+            width="200"
+            height="88"
+            rx="3"
+          />
+
+          <text class="svg-step" x="566" y="227">03</text>
+
+          <svg
+            class="svg-icon"
+            x="713"
+            y="214"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-shield"/>
+          </svg>
+
+          <text class="svg-label" x="566" y="252">
+            Review &amp; record
+          </text>
+
+          <text class="svg-small" x="566" y="273">
+            Manual checks
+          </text>
+
+          <rect
+            class="process-box"
+            x="810"
+            y="202"
+            width="200"
+            height="88"
+            rx="3"
+          />
+
+          <text class="svg-step" x="826" y="227">04</text>
+
+          <svg
+            class="svg-icon"
+            x="973"
+            y="214"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-clock"/>
+          </svg>
+
+          <text class="svg-label" x="826" y="252">
+            Monitor renewals
+          </text>
+
+          <text class="svg-small" x="826" y="273">
+            Manual calendar
+          </text>
+
+          <rect
+            class="process-box"
+            x="1060"
+            y="202"
+            width="200"
+            height="88"
+            rx="3"
+          />
+
+          <text class="svg-step" x="1076" y="227">05</text>
+
+          <svg
+            class="svg-icon"
+            x="1223"
+            y="214"
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-chart"/>
+          </svg>
+
+          <text class="svg-label" x="1076" y="252">
+            Report status
+          </text>
+
+          <text class="svg-small" x="1076" y="273">
+            Spreadsheet reports
+          </text>
+        </svg>
+      </div>
+
+      <div class="process-tools">
+        <span>CURRENT TOOLS</span>
+        <div>Email</div>
+        <div>PDF forms</div>
+        <div>Spreadsheets</div>
+        <div>Shared drives</div>
+        <div>Calendars</div>
+      </div>
+
+      <div class="slide-note">
+        <span class="note-arrow">↗</span>
+
+        <span>
+          Each manual hand-off introduces version,
+          status and follow-up risk.
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 -->
+    <section
+      class="slide"
+      data-title="Eight process and information gaps"
+      data-speaker="Safwaan / Abdullah"
+      data-chapter="THE ANALYSIS"
+      aria-label="Slide 5 Eight process and information gaps"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">05 / GAP ANALYSIS</span>
+
+        <h1>
+          Eight gaps.<br>
+          <em>One connected problem.</em>
+        </h1>
+      </div>
+
+      <div class="gaps-grid">
+        <article class="gap-item">
+          <div class="gap-top">
+            <span>G1</span>
+
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-layers"/>
+            </svg>
+          </div>
+
+          <h2>Duplicate supplier capture</h2>
+          <p>Inconsistent records</p>
+        </article>
+
+        <article class="gap-item">
+          <div class="gap-top">
+            <span>G2</span>
+
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-file"/>
+            </svg>
+          </div>
+
+          <h2>Unclear document versions</h2>
+          <p>Outdated evidence</p>
+        </article>
+
+        <article class="gap-item">
+          <div class="gap-top">
+            <span>G3</span>
+
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-eye"/>
+            </svg>
+          </div>
+
+          <h2>Limited status visibility</h2>
+          <p>Uncertain compliance position</p>
+        </article>
+
+        <article class="gap-item">
+          <div class="gap-top">
+            <span>G4</span>
+
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-clock"/>
+            </svg>
+          </div>
+
+          <h2>Manual expiry monitoring</h2>
+          <p>Missed renewal risk</p>
+        </article>
+
+        <article class="gap-item">
+          <div class="gap-top">
+            <span>G5</span>
+
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-link"/>
+            </svg>
+          </div>
+
+          <h2>Weak decision traceability</h2>
+          <p>Difficult audit reconstruction</p>
+        </article>
+
+        <article class="gap-item">
+          <div class="gap-top">
+            <span>G6</span>
+
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-user"/>
+            </svg>
+          </div>
+
+          <h2>Unclear exception ownership</h2>
+          <p>Delayed follow-up</p>
+        </article>
+
+        <article class="gap-item">
+          <div class="gap-top">
+            <span>G7</span>
+
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-chart"/>
+            </svg>
+          </div>
+
+          <h2>Manual report compilation</h2>
+          <p>Slow reporting</p>
+        </article>
+
+        <article class="gap-item">
+          <div class="gap-top">
+            <span>G8</span>
+
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-shield"/>
+            </svg>
+          </div>
+
+          <h2>Inconsistent access control</h2>
+          <p>Confidentiality exposure</p>
+        </article>
+      </div>
+
+      <div class="slide-note">
+        <span class="note-arrow">↗</span>
+
+        <span>
+          Each gap becomes a traceable reason for a future requirement.
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 -->
+    <section
+      class="slide"
+      data-title="Initial requirements"
+      data-speaker="Safwaan / Abdullah"
+      data-chapter="THE SOLUTION"
+      aria-label="Slide 6 Initial requirements"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">06 / INITIAL REQUIREMENTS</span>
+
+        <h1>
+          The controls<br>
+          <em>the process needs.</em>
+        </h1>
+      </div>
+
+      <div class="requirements-layout">
+        <div>
+          <div class="column-heading">
+            <span>08 FUNCTIONAL REQUIREMENTS</span>
+            <span>GAP LINKS</span>
+          </div>
+
+          <div class="requirements-grid">
+            <div class="requirement">
+              <span class="requirement-id">F1</span>
+
+              <div>
+                <h3>Unique supplier profiles</h3>
+                <span class="requirement-detail">
+                  MUST <i>/</i> G1
+                </span>
+              </div>
+            </div>
+
+            <div class="requirement">
+              <span class="requirement-id">F2</span>
+
+              <div>
+                <h3>Versioned certification evidence</h3>
+                <span class="requirement-detail">
+                  MUST <i>/</i> G2
+                </span>
+              </div>
+            </div>
+
+            <div class="requirement">
+              <span class="requirement-id">F3</span>
+
+              <div>
+                <h3>Current status and missing evidence</h3>
+                <span class="requirement-detail">
+                  MUST <i>/</i> G3
+                </span>
+              </div>
+            </div>
+
+            <div class="requirement">
+              <span class="requirement-id">F4</span>
+
+              <div>
+                <h3>Expiry tracking and renewal alerts</h3>
+                <span class="requirement-detail">
+                  MUST <i>/</i> G4
+                </span>
+              </div>
+            </div>
+
+            <div class="requirement">
+              <span class="requirement-id">F5</span>
+
+              <div>
+                <h3>Reviewer and decision history</h3>
+                <span class="requirement-detail">
+                  MUST <i>/</i> G5
+                </span>
+              </div>
+            </div>
+
+            <div class="requirement">
+              <span class="requirement-id">F6</span>
+
+              <div>
+                <h3>Assigned exceptions and follow-up</h3>
+                <span class="requirement-detail">
+                  MUST <i>/</i> G6
+                </span>
+              </div>
+            </div>
+
+            <div class="requirement">
+              <span class="requirement-id">F7</span>
+
+              <div>
+                <h3>Status and exception reports</h3>
+                <span class="requirement-detail">
+                  SHOULD <i>/</i> G7
+                </span>
+              </div>
+            </div>
+
+            <div class="requirement">
+              <span class="requirement-id">F8</span>
+
+              <div>
+                <h3>Linked audit and laboratory records</h3>
+                <span class="requirement-detail">
+                  SHOULD <i>/</i> G2, G3
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quality-column">
+          <div class="column-heading">
+            <span>04 QUALITY REQUIREMENTS</span>
+          </div>
+
+          <div class="quality-item">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-shield"/>
+            </svg>
+
+            <div>
+              <h3>Role-based access</h3>
+              <span>N1 / MUST</span>
+            </div>
+          </div>
+
+          <div class="quality-item">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-database"/>
+            </svg>
+
+            <div>
+              <h3>Data minimisation and retention</h3>
+              <span>N2 / MUST</span>
+            </div>
+          </div>
+
+          <div class="quality-item">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-user"/>
+            </svg>
+
+            <div>
+              <h3>Clear review tasks</h3>
+              <span>N3 / SHOULD</span>
+            </div>
+          </div>
+
+          <div class="quality-item">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <use href="#i-clock"/>
+            </svg>
+
+            <div>
+              <h3>Agreed response and availability targets</h3>
+              <span>N4 / SHOULD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="traceability">
+        <span>ACCEPTANCE EXAMPLE</span>
+
+        <b>
+          G4
+          <small>Expiry risk</small>
+        </b>
+
+        <span class="trace-arrow">→</span>
+
+        <b>
+          F4
+          <small>Renewal alert</small>
+        </b>
+
+        <span class="trace-arrow">→</span>
+
+        <p>
+          A record approaching its agreed renewal threshold
+          creates an alert for its assigned owner.
+        </p>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 -->
+    <section
+      class="slide"
+      data-title="Solution options and recommendation"
+      data-speaker="Suhail"
+      data-chapter="THE SOLUTION"
+      aria-label="Slide 7 Solution options and recommendation"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">
+          07 / OPTIONS &amp; RECOMMENDATION
+        </span>
+
+        <h1>
+          A practical direction.<br>
+          <em>A controlled decision.</em>
+        </h1>
+      </div>
+
+      <div class="options-layout">
+        <article class="preferred-option">
+          <span class="micro-label">
+            OPTION A / PROVISIONAL RECOMMENDATION
+          </span>
+
+          <div class="option-mini" aria-hidden="true">
+            <svg class="icon" viewBox="0 0 24 24">
+              <use href="#i-database"/>
+            </svg>
+
+            <svg class="icon" viewBox="0 0 24 24">
+              <use href="#i-arrow"/>
+            </svg>
+
+            <svg class="icon" viewBox="0 0 24 24">
+              <use href="#i-shield"/>
+            </svg>
+
+            <svg class="icon" viewBox="0 0 24 24">
+              <use href="#i-arrow"/>
+            </svg>
+
+            <svg class="icon" viewBox="0 0 24 24">
+              <use href="#i-chart"/>
+            </svg>
+          </div>
+
+          <h2>
+            Managed repository.<br>
+            Accountable workflow.
+          </h2>
+
+          <p>
+            Central supplier records with versioned evidence,
+            review tasks and renewal tracking.
+          </p>
+
+          <div class="option-tradeoff">
+            <b>Fit:</b> a bounded document and review process.<br>
+            <b>Condition:</b> confirm capabilities, licensing
+            and support ownership.
+          </div>
+        </article>
+
+        <div class="alternative-column">
+          <article class="alternative-option">
+            <span class="micro-label">
+              OPTION B / ALTERNATIVE
+            </span>
+
+            <h2>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <use href="#i-code"/>
+              </svg>
+
+              Custom application
+            </h2>
+
+            <p>
+              Greater design flexibility, with development
+              and ongoing support responsibilities.
+            </p>
+          </article>
+
+          <div class="evaluation">
+            <span class="micro-label">
+              PROPOSED EVALUATION WEIGHTS
+            </span>
+
+            <div class="evaluation-row">
+              <span>Requirements fit</span>
+              <b>30%</b>
+              <div><i style="width:100%"></i></div>
+            </div>
+
+            <div class="evaluation-row">
+              <span>Security &amp; auditability</span>
+              <b>25%</b>
+              <div><i style="width:83.333%"></i></div>
+            </div>
+
+            <div class="evaluation-row">
+              <span>Delivery feasibility</span>
+              <b>20%</b>
+              <div><i style="width:66.667%"></i></div>
+            </div>
+
+            <div class="evaluation-row">
+              <span>Usability</span>
+              <b>15%</b>
+              <div><i style="width:50%"></i></div>
+            </div>
+
+            <div class="evaluation-row">
+              <span>Ongoing ownership</span>
+              <b>10%</b>
+              <div><i style="width:33.333%"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-note">
+        <span class="note-arrow">↗</span>
+
+        <span>
+          Select the preferred option only after assessing
+          the requirements against evidence.
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 8 -->
+    <section
+      class="slide"
+      data-title="Proposed future solution"
+      data-speaker="Safwaan"
+      data-chapter="THE SOLUTION"
+      aria-label="Slide 8 Proposed future solution"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">08 / PROPOSED FUTURE STATE</span>
+
+        <h1>
+          One record.<br>
+          <em>Every decision connected.</em>
+        </h1>
+      </div>
+
+      <div class="architecture-frame">
+        <svg
+          class="architecture-svg"
+          viewBox="0 0 1220 430"
+          role="img"
+          aria-labelledby="arch-title"
+        >
+          <title id="arch-title">
+            Proposed central supplier record
+            and controlled compliance workflow
+          </title>
+
+          <defs>
+            <marker
+              id="arch-arrow"
+              markerWidth="7"
+              markerHeight="7"
+              refX="6"
+              refY="3"
+              orient="auto"
+            >
+              <path
+                d="m0 0 6 3-6 3"
+                fill="none"
+                stroke="#d7fb58"
+              />
+            </marker>
+          </defs>
+
+          <text class="arch-label" x="0" y="30">
+            PARTICIPANTS
+          </text>
+
+          <text class="arch-label" x="405" y="30">
+            CONTROLLED RECORD
+          </text>
+
+          <text class="arch-label" x="870" y="30">
+            WORKFLOW &amp; OUTPUTS
+          </text>
+
+          <rect
+            class="security-boundary"
+            x="356"
+            y="53"
+            width="852"
+            height="346"
+            rx="8"
+          />
+
+          <text class="security-label" x="386" y="382">
+            ROLE-BASED ACCESS / MINIMUM NECESSARY DATA / AUDIT HISTORY
+          </text>
+
+          <path
+            class="arch-path"
+            d="
+              M265 113H328V190H410
+              M265 210H410
+              M265 307H328V230H410
+              M730 211H790V123H850
+              M990 155V177
+              M990 240V262
+            "
+          />
+
+          <rect
+            class="arch-user"
+            x="0"
+            y="74"
+            width="265"
+            height="78"
+            rx="4"
+          />
+
+          <svg
+            class="svg-icon"
+            x="20"
+            y="97"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-users"/>
+          </svg>
+
+          <text class="svg-label" x="65" y="105">
+            Suppliers
+          </text>
+
+          <text class="svg-small" x="65" y="128">
+            Submit and renew
+          </text>
+
+          <rect
+            class="arch-user"
+            x="0"
+            y="171"
+            width="265"
+            height="78"
+            rx="4"
+          />
+
+          <svg
+            class="svg-icon"
+            x="20"
+            y="194"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-shield"/>
+          </svg>
+
+          <text class="svg-label" x="65" y="202">
+            Compliance staff
+          </text>
+
+          <text class="svg-small" x="65" y="225">
+            Review and resolve
+          </text>
+
+          <rect
+            class="arch-user"
+            x="0"
+            y="268"
+            width="265"
+            height="78"
+            rx="4"
+          />
+
+          <svg
+            class="svg-icon"
+            x="20"
+            y="291"
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-chart"/>
+          </svg>
+
+          <text class="svg-label" x="65" y="299">
+            Management
+          </text>
+
+          <text class="svg-small" x="65" y="322">
+            Monitor and report
+          </text>
+
+          <rect
+            class="arch-repository"
+            x="410"
+            y="92"
+            width="320"
+            height="238"
+            rx="5"
+          />
+
+          <svg
+            class="repo-icon"
+            x="443"
+            y="122"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+          >
+            <use href="#i-database"/>
+          </svg>
+
+          <text class="repo-heading" x="443" y="195">
+            One supplier record
+          </text>
+
+          <path class="repo-line" d="M443 214H697"/>
+
+          <text class="repo-detail" x="443" y="241">
+            Supplier identity &amp; status
+          </text>
+
+          <text class="repo-detail" x="443" y="267">
+            Versioned evidence
+          </text>
+
+          <text class="repo-detail" x="443" y="293">
+            Reviews &amp; decision history
+          </text>
+
+          <rect
+            class="arch-output"
+            x="850"
+            y="92"
+            width="320"
+            height="63"
+            rx="4"
+          />
+
+          <text class="svg-label" x="870" y="118">
+            Evidence review
+          </text>
+
+          <text class="svg-small" x="870" y="139">
+            Assigned reviewer and outcome
+          </text>
+
+          <rect
+            class="arch-output"
+            x="850"
+            y="177"
+            width="320"
+            height="63"
+            rx="4"
+          />
+
+          <text class="svg-label" x="870" y="203">
+            Renewal &amp; exceptions
+          </text>
+
+          <text class="svg-small" x="870" y="224">
+            Alerts with accountable owners
+          </text>
+
+          <rect
+            class="arch-output"
+            x="850"
+            y="262"
+            width="320"
+            height="63"
+            rx="4"
+          />
+
+          <text class="svg-label" x="870" y="288">
+            Status reporting
+          </text>
+
+          <text class="svg-small" x="870" y="309">
+            Consistent management visibility
+          </text>
+        </svg>
+      </div>
+
+      <div class="slide-note">
+        <span class="note-arrow">↗</span>
+
+        <span>
+          A conceptual design for evaluation,
+          with the same business process boundary.
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 9 -->
+    <section
+      class="slide"
+      data-title="Delivery and governance"
+      data-speaker="Abdullah / Suhail"
+      data-chapter="THE DELIVERY"
+      aria-label="Slide 9 Delivery and governance"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">09 / DELIVERY &amp; GOVERNANCE</span>
+
+        <h1>
+          Clear gates.<br>
+          <em>Accountable progress.</em>
+        </h1>
+      </div>
+
+      <div class="delivery-timeline">
+        <div class="milestone">
+          <span>M1</span>
+          <h2>24 Sep</h2>
+          <p>Plan approval</p>
+          <small>Actual: 2 Oct</small>
+        </div>
+
+        <div class="milestone">
+          <span>M2</span>
+          <h2>1 Oct</h2>
+          <p>As-Is boundary</p>
+          <small>PLANNED CHECKPOINT</small>
+        </div>
+
+        <div class="milestone">
+          <span>M3</span>
+          <h2>15 Oct</h2>
+          <p>Requirements baseline</p>
+          <small>PLANNED CHECKPOINT</small>
+        </div>
+
+        <div class="milestone">
+          <span>M4</span>
+          <h2>22 Oct</h2>
+          <p>Preferred option</p>
+          <small>PLANNED CHECKPOINT</small>
+        </div>
+
+        <div class="milestone">
+          <span>M5</span>
+          <h2>29 Oct</h2>
+          <p>Mini-RFC feedback</p>
+          <small>PLANNED CHECKPOINT</small>
+        </div>
+
+        <div class="milestone">
+          <span>M6</span>
+          <h2>12 Nov</h2>
+          <p>Final report and deck</p>
+          <small>PLANNED CHECKPOINT</small>
+        </div>
+      </div>
+
+      <div class="governance-grid">
+        <div>
+          <span class="micro-label">SCOPE CONTROL</span>
+          <h3>Keep the work bounded.</h3>
+
+          <p>
+            Record material changes and confirm impacts
+            with the supervisor.
+          </p>
+        </div>
+
+        <div>
+          <span class="micro-label">QUALITY CONTROL</span>
+          <h3>Keep the analysis traceable.</h3>
+
+          <p>
+            Link gaps to requirements and resolve
+            critical review comments.
+          </p>
+        </div>
+
+        <div>
+          <span class="micro-label">MINI-RFC</span>
+          <h3>Challenge the recommendation.</h3>
+
+          <p>
+            Record reviewer comments, the team’s response
+            and resulting changes.
+          </p>
+        </div>
+      </div>
+
+      <div class="slide-note">
+        <span class="note-arrow">↗</span>
+
+        <span>
+          Weekly Thursday reviews support decisions,
+          escalation and controlled document versions.
+        </span>
+      </div>
+    </section>
+
+    <!-- SLIDE 10 -->
+    <section
+      class="slide closing-slide"
+      data-title="Recommendation and next steps"
+      data-speaker="All presenters"
+      data-chapter="THE DECISION"
+      aria-label="Slide 10 Recommendation and next steps"
+    >
+      <div class="slide-heading">
+        <span class="eyebrow">10 / RECOMMENDATION</span>
+
+        <h1>
+          One record.<br>
+          <em>Clear accountability.</em>
+        </h1>
+      </div>
+
+      <div class="closing-layout">
+        <div class="closing-summary">
+          <p>
+            Assess a managed repository and workflow
+            against the supplier lifecycle requirements.
+          </p>
+
+          <div class="expected-outcomes">
+            <span>EXPECTED BENEFITS</span>
+
+            <h2>Visible certification status.</h2>
+            <h2>Traceable review decisions.</h2>
+            <h2>Owned renewal actions.</h2>
+          </div>
+        </div>
+
+        <div class="closing-actions">
+          <span class="micro-label">THE NEXT DECISIONS</span>
+
+          <ol>
+            <li>
+              <span>01</span>
+              Validate the process and requirements.
+            </li>
+
+            <li>
+              <span>02</span>
+              Compare both options against agreed criteria.
+            </li>
+
+            <li>
+              <span>03</span>
+              Refine the recommendation through the Mini-RFC.
+            </li>
+          </ol>
+
+          <p class="questions">
+            Thank you.<br>
+            <em>Questions &amp; discussion.</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="closing-team">
+        <span>
+          <b>Suhail Essack</b>
+          Project &amp; Business Analysis
+        </span>
+
+        <span>
+          <b>Safwaan Wadee</b>
+          Requirements &amp; Solution
+        </span>
+
+        <span>
+          <b>Abdullah Lorgat</b>
+          Documentation &amp; Quality Assurance
+        </span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="deckbar">
+    <div class="section-info">
+      <span id="chapterNumber">01</span>
+      <span id="chapterName">THE CONTEXT</span>
+    </div>
+
+    <nav class="navigation" aria-label="Slide navigation">
+      <button
+        id="prevBtn"
+        type="button"
+        aria-label="Previous slide"
+      >
+        ←
+      </button>
+
+      <span class="slide-counter">
+        <b id="currentSlide">01</b>
+        <span>/</span>
+        <span>10</span>
+      </span>
+
+      <button
+        id="nextBtn"
+        type="button"
+        aria-label="Next slide"
+      >
+        →
+      </button>
+    </nav>
+
+    <div class="speaker-pill">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span id="speakerName">Suhail Essack</span>
+
+      <button
+        id="helpBtn"
+        type="button"
+        title="Shortcuts — ?"
+        aria-label="Keyboard shortcuts"
+      >
+        ?
+      </button>
+    </div>
+  </footer>
+
+  <div class="progress-track" aria-hidden="true">
+    <div id="progress"></div>
+  </div>
+
+  <dialog id="overview" aria-labelledby="overviewTitle">
+    <div class="dialog-head">
+      <div>
+        <span class="eyebrow">APEX / WIL 2026</span>
+        <h2 id="overviewTitle">Presentation index</h2>
+      </div>
+
+      <button
+        class="close"
+        type="button"
+        data-close="overview"
+        aria-label="Close overview"
+      >
+        ×
+      </button>
+    </div>
+
+    <div id="overviewGrid"></div>
+  </dialog>
+
+  <dialog id="sources" aria-labelledby="sourcesTitle">
+    <div class="dialog-head">
+      <h2 id="sourcesTitle">References</h2>
+
+      <button
+        class="close"
+        type="button"
+        data-close="sources"
+        aria-label="Close references"
+      >
+        ×
+      </button>
+    </div>
+
+    <ol class="references">
+      <li>
+        <b>Group Project Plan</b>
+
+        <p>
+          Essack, S., Wadee, S. and Lorgat, A. 2026.
+          <i>XBIT7329 Task 2 Group Project Plan.</i>
+          Prepared 19 September 2026.
+        </p>
+      </li>
+
+      <li>
+        <b>Professional Conduct and Onboarding</b>
+
+        <p>
+          Essack, S. 2026.
+          <i>XBIT7329 Task 1 Portfolio.</i>
+        </p>
+      </li>
+
+      <li>
+        <b>Module Manual</b>
+
+        <p>
+          The Independent Institute of Education. 2026.
+          <i>
+            Work Integrated Learning 3 Module Manual
+            XBIT7329/p/w.
+          </i>
+          Especially pp. 19–21.
+        </p>
+      </li>
+    </ol>
+
+    <p class="reference-note">
+      Apex is a simulated company. Process models, SWOT,
+      gaps, requirements and solution analysis form a proposal
+      for review. Expected benefits depend on future
+      implementation and evaluation.
+    </p>
+  </dialog>
+
+  <dialog id="help" aria-labelledby="helpTitle">
+    <div class="dialog-head">
+      <h2 id="helpTitle">Presentation controls</h2>
+
+      <button
+        class="close"
+        type="button"
+        data-close="help"
+        aria-label="Close controls"
+      >
+        ×
+      </button>
+    </div>
+
+    <dl class="shortcuts">
+      <div>
+        <dt>← → / Space</dt>
+        <dd>Navigate</dd>
+      </div>
+
+      <div>
+        <dt>Home / End</dt>
+        <dd>First / last slide</dd>
+      </div>
+
+      <div>
+        <dt>O</dt>
+        <dd>Overview</dd>
+      </div>
+
+      <div>
+        <dt>F</dt>
+        <dd>Fullscreen</dd>
+      </div>
+
+      <div>
+        <dt>R</dt>
+        <dd>References</dd>
+      </div>
+
+      <div>
+        <dt>Esc</dt>
+        <dd>Close overlay</dd>
+      </div>
+    </dl>
+  </dialog>
+
+  <div
+    class="sr-only"
+    id="announce"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <noscript>
+    <style>
+      .slide {
+        display: flex !important;
+      }
+
+      #stage {
+        height: auto;
+        overflow: visible;
+      }
+
+      body {
+        overflow: auto;
+      }
+    </style>
+  </noscript>
+</body>
+</html>
