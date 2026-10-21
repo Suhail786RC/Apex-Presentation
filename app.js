@@ -55,6 +55,8 @@ function showSlide(index, updateHash = true) {
     const active = index === current;
 
     slide.classList.toggle("active", active);
+    slide.classList.toggle("prev", index < current);
+    slide.classList.toggle("next", index > current);
     slide.setAttribute("aria-hidden", String(!active));
     slide.inert = !active;
   });
@@ -349,3 +351,13 @@ window.addEventListener("afterprint", () => {
 /* Initialise */
 
 showSlide(hashIndex(), false);
+// Reflect fullscreen changes, including exits through Escape.
+function syncFullscreenControl() {
+  const enabled = Boolean(document.fullscreenElement);
+  $("fullBtn").setAttribute("aria-pressed", String(enabled));
+  $("fullBtn").setAttribute("aria-label", enabled ? "Exit fullscreen" : "Enter fullscreen");
+  $("fullBtn").title = enabled ? "Exit fullscreen — F" : "Fullscreen — F";
+}
+document.addEventListener("fullscreenchange", syncFullscreenControl);
+$("fullBtn").hidden = !document.documentElement.requestFullscreen;
+syncFullscreenControl();
