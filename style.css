@@ -2989,3 +2989,49 @@ dialog::backdrop {
   size: A4 landscape;
   margin: 0;
 }
+/* Full-viewport canvas using the original Apex charcoal and lime palette. */
+@media screen {
+  html, body { width: 100%; height: 100%; overscroll-behavior: none; }
+  body { height: 100dvh; }
+  #stage { position: fixed; inset: 0; width: 100%; height: 100dvh; overflow: hidden;
+    background: radial-gradient(ellipse at 83% 42%, #27351a55, transparent 58%), var(--bg); }
+  .topbar { position: fixed; top: env(safe-area-inset-top, 0px); left: 4.2vw; right: 4.2vw;
+    height: 64px; margin: 0; z-index: 5; }
+  .deckbar { position: fixed; bottom: max(4px, env(safe-area-inset-bottom, 0px)); left: 4.2vw;
+    right: 4.2vw; height: 60px; margin: 0; z-index: 5; }
+  .slide { height: 100%; min-height: 0;
+    padding: calc(84px + env(safe-area-inset-top, 0px)) 5vw calc(82px + env(safe-area-inset-bottom, 0px)); }
+  .slide-heading { margin-bottom: clamp(14px, 2.2vh, 30px); }
+  .hero, .context-layout, .requirements-layout, .options-layout, .closing-layout,
+  .process-frame, .architecture-frame { min-height: 0; }
+  .progress-track { left: 0; right: 0; bottom: 0; }
+  .navigation button, .top-actions button { min-width: 44px; min-height: 44px; }
+  .top-actions button { justify-content: center; }
+  .sheet-front { box-shadow: 0 25px 90px #b7ef3820, 0 35px 80px #0005; }
+  .network-svg, .process-svg, .architecture-svg { filter: drop-shadow(0 8px 25px #0002); }
+  button[hidden] { display: none !important; }
+}
+@media screen and (max-height: 620px) and (min-width: 901px) {
+  .topbar { height: 48px; }
+  .deckbar { height: 46px; }
+  .slide { padding-top: 62px; padding-bottom: 62px; }
+  .slide h1 { font-size: clamp(28px, 5vh, 42px); }
+  .slide .hero-title { font-size: clamp(58px, 12vh, 85px); }
+  .sculpture { min-height: 0; }
+  .document-stack { width: 210px; height: 270px; }
+  .sheet-front { padding: 20px; }
+  .certificate-symbol { margin: 12px 0; }
+  .certificate-title { font-size: 25px; }
+  .certificate-rule { margin: 12px 0; }
+  .certificate-bottom { margin-top: 12px; }
+}
+@media screen and (max-width: 900px) {
+  #stage { overflow-y: auto; }
+  .slide { height: auto; min-height: 100%; overflow: visible; }
+  .topbar, .deckbar { background: #101110f5; }
+}
+@media screen and (max-width: 600px) {
+  .topbar { height: 56px; }
+  .deckbar { height: 54px; }
+  .slide { padding: 78px 6vw 80px; }
+}
